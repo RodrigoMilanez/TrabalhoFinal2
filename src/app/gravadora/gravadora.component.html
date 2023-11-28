@@ -1,0 +1,63 @@
+
+<ion-button expand="block" (click)="toggleForm()">
+  {{ mostrarFormulario ? 'Esconder Formulário' : 'Adicionar Gravadora' }}
+</ion-button>
+<ion-card *ngIf="mostrarFormulario">
+  <ion-card-header>
+    <ion-card-title>Adicionar Nova Gravadora</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="novaGravadora.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">País</ion-label>
+      <ion-input type="text" [(ngModel)]="novaGravadora.pais"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select [(ngModel)]="novaGravadora.tipo">
+        <ion-select-option value="Gravadora">Gravadora</ion-select-option>
+        <ion-select-option value="Label">Label</ion-select-option>
+        <ion-select-option value="Virtual">Virtual</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data de Fundação</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="novaGravadora.fundacao"></ion-datetime>
+    </ion-item>
+    <ion-button expand="block" (click)="adicionarGravadora()">Adicionar</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-list>
+  <ion-item *ngFor="let gravadora of gravadoras">
+    <ion-label>
+      <h2>{{ gravadora.nome }}</h2>
+      <p>País: {{ gravadora.pais }}</p>
+      <p>Tipo: {{ gravadora.tipo }}</p>
+      <ion-note>{{ novaGravadora.fundacao | date: 'dd/MM/yyyy' }}</ion-note>
+    </ion-label>
+    <ion-buttons >
+      <ion-item-option side="end" (click)="editarGravadora(gravadora)">Editar</ion-item-option>
+    
+      <ion-button color="danger" (click)="deletarGravadora(gravadora.id)">Deletar</ion-button>
+    </ion-buttons>
+  </ion-item>
+</ion-list>
+
+<ion-card *ngIf="mostrarFormularioEdicao">
+  <ion-card-header>
+    <ion-card-title>Editar Gravadora</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="gravadoraParaEditar.nome"></ion-input>
+    </ion-item>
+    <!-- Outros campos da gravadora -->
+    <ion-button expand="block" (click)="salvarEdicao()">Salvar</ion-button>
+    <ion-button expand="block" color="danger" (click)="cancelarEdicao()">Cancelar</ion-button>
+  </ion-card-content>
+</ion-card>

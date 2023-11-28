@@ -1,0 +1,11 @@
+{
+  "gravadoras": [
+    {
+      "id": 1,
+      "nome": "Nautilus",
+      "pais": "Brasil",
+      "fundacao": "2021-05-11T19:33:00",
+      "tipo": "Label"
+    }
+  ]
+}

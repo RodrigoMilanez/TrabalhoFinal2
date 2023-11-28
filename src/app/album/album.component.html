@@ -1,0 +1,64 @@
+
+<ion-button expand="block" (click)="toggleForm('adicionar')">
+  {{ mostrarFormAdicionar ? 'Esconder Formulário' : 'Adicionar Álbum' }}
+</ion-button>
+
+<ion-card *ngIf="mostrarFormAdicionar">
+  <ion-card-header>
+    <ion-card-title>Adicionar Novo Álbum</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Nome do Álbum</ion-label>
+      <ion-input type="text" [(ngModel)]="albumParaAdicionar.titulo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Artista</ion-label>
+      <ion-select [(ngModel)]="artista">
+        <ion-select-option *ngFor="let artista of artistas" [value]="artista">
+          {{ artista.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gravadora</ion-label>
+      <ion-select [(ngModel)]="gravadora">
+        <ion-select-option *ngFor="let gravadora of gravadoras" [value]="gravadora">
+          {{ gravadora.nome }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data de Lançamento</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="albumParaAdicionar.lancamento"></ion-datetime>
+    </ion-item>
+    <ion-button expand="block" (click)="adicionarAlbum()">Adicionar</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-list>
+  <ng-container *ngFor="let album of albums">
+    <ion-item>
+      <ion-label>
+        <h2>{{ album.titulo }}</h2>
+        <p>Data de Lançamento: {{ album.lancamento | date: 'dd/MM/yyyy' }}</p>
+        <p>Gravadora: {{ album.Gravadora?.nome || 'Gravadora não encontrada' }}</p>
+        <p>Artista: {{ album.artista?.name || 'Artista não encontrado' }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editarAlbum(album)">Editar</ion-button>
+        <ion-button color="danger" (click)="deletarAlbum(album.id)">Deletar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ng-container>
+</ion-list>
+
+<ion-card *ngIf="mostrarFormEdicao">
+  <ion-card-header>
+    <ion-card-title>Editar Álbum</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button expand="block" (click)="salvarEdicao()">Salvar</ion-button>
+    <ion-button expand="block" color="danger" (click)="cancelarEdicao()">Cancelar</ion-button>
+  </ion-card-content>
+</ion-card>

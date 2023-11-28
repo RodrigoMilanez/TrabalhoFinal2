@@ -1,0 +1,19 @@
+{
+  "gravadoras": [
+    {
+      "id": 1,
+      "nome": "Gravadora 1",
+      "pais": "País 1",
+      "fundacao": "2000-01-01",
+      "tipo": "Tipo 1"
+    },
+    {
+      "id": 2,
+      "nome": "Gravadora 2",
+      "pais": "País 2",
+      "fundacao": "2005-05-05",
+      "tipo": "Tipo 2"
+    },
+    // ... outros objetos de gravadora
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "albums": [
+    {
+      "id": 5,
+      "titulo": "",
+      "lancamento": "2023-11-28T00:28:47.385Z",
+      "Gravadora": {
+        "id": 0,
+        "nome": "",
+        "pais": "",
+        "fundacao": "2023-11-28T00:28:47.385Z",
+        "tipo": ""
+      },
+      "artista": {
+        "id": 0,
+        "name": "",
+        "formacao": "2023-11-28T00:28:47.385Z",
+        "nacionalidade": "",
+        "genero": ""
+      }
+    },
+    {
+      "id": 6,
+      "titulo": "",
+      "lancamento": "2023-11-28T00:28:52.404Z",
+      "Gravadora": {
+        "id": 0,
+        "nome": "",
+        "pais": "",
+        "fundacao": "2023-11-28T00:28:52.404Z",
+        "tipo": ""
+      },
+      "artista": {
+        "id": 0,
+        "name": "",
+        "formacao": "2023-11-28T00:28:52.404Z",
+        "nacionalidade": "",
+        "genero": ""
+      }
+    },
+    {
+      "id": 8,
+      "titulo": "asdasd",
+      "lancamento": "2021-05-03T21:36:00",
+      "Gravadora": 1,
+      "artista": 2
+    },
+    {
+      "id": 9,
+      "titulo": "aasdasdasd",
+      "lancamento": "2021-05-03T21:37:00",
+      "Gravadora": 1,
+      "artista": 4
+    },
+    {
+      "id": 11,
+      "titulo": "",
+      "lancamento": "2023-11-28T01:02:48.735Z",
+      "Gravadora": {
+        "id": 0,
+        "nome": "",
+        "pais": "",
+        "fundacao": "2023-11-28T01:02:48.735Z",
+        "tipo": ""
+      },
+      "artista": 2
+    },
+    {
+      "id": 12,
+      "titulo": "",
+      "lancamento": "2023-11-28T01:02:48.735Z",
+      "Gravadora": 1,
+      "artista": 2
+    }
+  ]
+}

@@ -2,6 +2,10 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+p{
+  margin-left: 50px;
+}
+
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -64,7 +68,6 @@
   --ion-color-medium-rgb: 146, 148, 156;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
-  --ion-color-medium-shade: #808289;
   --ion-color-medium-tint: #9d9fa6;
 
   /** light **/

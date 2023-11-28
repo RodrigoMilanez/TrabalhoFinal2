@@ -57,6 +57,11 @@
   <ion-card-header>
     <ion-card-title>Editar Álbum</ion-card-title>
   </ion-card-header>
+  <ion-item>
+    <ion-label position="floating">Nome do Álbum</ion-label>
+  </ion-item>
+  
+      <ion-input type="text" [(ngModel)]="albumParaEditar.titulo"></ion-input>
   <ion-card-content>
     <ion-button expand="block" (click)="salvarEdicao()">Salvar</ion-button>
     <ion-button expand="block" color="danger" (click)="cancelarEdicao()">Cancelar</ion-button>

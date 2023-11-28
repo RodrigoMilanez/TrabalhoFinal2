@@ -8,7 +8,7 @@ import { Artista } from '../models/artistaModel';
 })
 export class ArtistaService {
 
-  private apiUrl = 'http://localhost:3000/artistas'; // Substitua pela sua URL
+  private apiUrl = 'http://localhost:3000/artistas'; 
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,6 @@ export class ArtistaService {
   }
 
   deletarArtista(id: number): Observable<Artista> {
-    console.log(id)
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<Artista>(url);
   }

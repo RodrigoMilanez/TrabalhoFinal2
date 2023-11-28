@@ -19,7 +19,10 @@ export class AlbumComponent implements OnInit {
       new Artista(0, '', new Date(), '', ''));
   albumParaAdicionar: Album = new Album(0, '', new Date(), 
       new Gravadora(0, '', '', new Date, ''), 
-      new Artista(0, '', new Date(), '', ''));    
+      new Artista(0, '', new Date(), '', '')); 
+  novoAlbum : Album   = new Album(0, '', new Date(), 
+  new Gravadora(0, '', '', new Date, ''), 
+  new Artista(0, '', new Date(), '', ''));  
   mostrarFormulario: boolean = false;
   modoEdicao: boolean = false;
   mostrarFormAdicionar: boolean = false;
@@ -43,12 +46,30 @@ export class AlbumComponent implements OnInit {
   }
 
   toggleForm(tipo: string): void {
-    if (tipo === 'adicionar') {
       this.mostrarFormAdicionar = !this.mostrarFormAdicionar;
-    } else if (tipo === 'edicao') {
-      this.mostrarFormEdicao = !this.mostrarFormEdicao;
-    }
+    
   }
+
+
+  editarAlbum(album: any): void {
+    this.albumParaEditar = { ...album }; 
+    this.mostrarFormEdicao = true; 
+  }
+
+  salvarEdicao(): void {
+    this.albumService.updateAlbum(this.albumParaEditar).subscribe(() =>{
+        this.novoAlbum= new Album(0, '', new Date(), 
+        new Gravadora(0, '', '', new Date, ''), 
+        new Artista(0, '', new Date(), '', ''));
+        this.carregarAlbums();
+    });
+    this.mostrarFormEdicao = false;
+  }
+  cancelarEdicao(): void {
+    this.mostrarFormEdicao = false; 
+  }
+
+
 
   carregarGravadoras(): void {
     this.gravadoraService.getGravadoras().subscribe(gravadoras => {
@@ -91,11 +112,6 @@ export class AlbumComponent implements OnInit {
     });
   }
 
-  editarAlbum(album: Album): void {
-    this.albumParaEditar = { ...album };
-    this.mostrarFormulario = true; 
-    this.modoEdicao = true; 
-  }
 
   adicionarAlbum(): void {
     console.log(this.artista);
@@ -108,21 +124,9 @@ export class AlbumComponent implements OnInit {
     });
   }
 
-  cancelarEdicao(): void {
-    this.toggleForm('edicao');
-  }
-
-  salvarEdicao(): void {
-    this.albumService.updateAlbum(this.albumParaEditar).subscribe(
-      () => {
-        this.toggleForm('edicao');
-        this.carregarAlbums(); 
-      });
-  }
-
   deletarAlbum(id: number): void {
     this.albumService.deleteAlbum(id).subscribe(() => {
-      this.carregarArtistas();
+      this.carregarAlbums();
     });
   }
   

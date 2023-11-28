@@ -18,6 +18,12 @@ export class AlbumService {
   getAlbums(): Observable<Album[]> {
     return this.http.get<Album[]>(this.apiUrl);
   }
+  
+  getAlbumById(id: number): Observable<Album> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Album>(url);
+
+  }
 
   addAlbum(album: Album): Observable<Album> {
     return this.http.post<Album>(this.apiUrl, album);
@@ -32,6 +38,7 @@ export class AlbumService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<Album>(url);
   }
+
 
   obterAlbumsComDetalhes(): Observable<any[]> {
     return this.http.get<Album[]>(this.apiUrl).pipe(
